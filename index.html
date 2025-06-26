@@ -19,7 +19,6 @@
       --accent: #ffcc00;
       --dark: #0a0a1f;
       --light: #f0f0ff;
-      --pixel-size: 2px;
       --landing-color: #00ff00;
       --site-color: #ffa500;
       --flask-color: #9370db;
@@ -35,10 +34,17 @@
       line-height: 1.6;
     }
 
-    #particles-js {
+    /* Efeito de fundo simplificado */
+    .background-grid {
       position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
       z-index: -1;
     }
 
@@ -62,7 +68,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      animation: pulse 2s infinite;
+      animation: float 3s ease-in-out infinite;
     }
 
     header img {
@@ -135,7 +141,6 @@
     }
 
     .hero .logo-container {
-      /* Tamanho reduzido para melhor proporção */
       width: 160px;
       height: 160px;
       margin: 0 auto 25px;
@@ -143,32 +148,17 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      animation: float 3s ease-in-out infinite;
     }
 
     .hero .logo {
-      /* Tamanho máximo ajustado para melhor proporção */
       max-width: 180px;
       height: auto;
       border-radius: 50%;
       border: 4px solid var(--accent);
       box-shadow: 0 0 30px var(--primary);
-      animation: float 3s ease-in-out infinite;
       position: relative;
       z-index: 2;
-    }
-
-    .hero .logo::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
-      opacity: 0.7;
-      z-index: -1;
-      animation: pulse 4s infinite alternate;
     }
 
     .hero h1.title {
@@ -265,6 +255,70 @@
 
     .btn-primary:hover::after, .btn-secondary:hover::after {
       transform: translateX(0);
+    }
+
+    /* Botões de navegação rápida */
+    .quick-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .quick-btn {
+      background: rgba(30, 30, 60, 0.8);
+      border: 2px solid;
+      color: #a0a0ff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .quick-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px currentColor;
+    }
+
+    .landing-btn {
+      border-color: var(--landing-color);
+      color: var(--landing-color);
+    }
+
+    .landing-btn:hover {
+      background: rgba(0, 255, 0, 0.2);
+      box-shadow: 0 0 15px var(--landing-color);
+    }
+
+    .sites-btn {
+      border-color: var(--site-color);
+      color: var(--site-color);
+    }
+
+    .sites-btn:hover {
+      background: rgba(255, 165, 0, 0.2);
+      box-shadow: 0 0 15px var(--site-color);
+    }
+
+    .flask-btn {
+      border-color: var(--flask-color);
+      color: var(--flask-color);
+    }
+
+    .flask-btn:hover {
+      background: rgba(147, 112, 219, 0.2);
+      box-shadow: 0 0 15px var(--flask-color);
     }
 
     /* Pricing Section */
@@ -807,6 +861,16 @@
       .economy-container h3 {
         font-size: 1.5rem;
       }
+
+      .quick-nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .quick-btn {
+        width: 80%;
+        margin-bottom: 10px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -958,7 +1022,7 @@
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+  <div class="background-grid"></div>
   
   <!-- Header -->
   <header>
@@ -990,12 +1054,19 @@
     </div>
   </section>
 
+  <!-- Botões de navegação rápida -->
+  <div class="quick-nav" id="planos">
+    <a href="#landing" class="quick-btn landing-btn">Landing Pages</a>
+    <a href="#sites" class="quick-btn sites-btn">Sites</a>
+    <a href="#flask" class="quick-btn flask-btn">Projetos Flask</a>
+  </div>
+
   <!-- TABELA DE PREÇOS AJUSTADA -->
-  <section class="pricing-section" id="planos">
+  <section class="pricing-section">
     <h2 class="section-title">🚀 TABELA DE PREÇOS INTELIGENTE – PlayPage 2025</h2>
     
     <!-- Landing Pages -->
-    <div class="category-container landing-container">
+    <div class="category-container landing-container" id="landing">
       <div class="category-header">
         <div class="category-icon">
           <i class="fas fa-rocket"></i>
@@ -1065,7 +1136,7 @@
     </div>
     
     <!-- Sites -->
-    <div class="category-container sites-container">
+    <div class="category-container sites-container" id="sites">
       <div class="category-header">
         <div class="category-icon">
           <i class="fas fa-globe"></i>
@@ -1134,7 +1205,7 @@
     </div>
     
     <!-- Projetos Flask -->
-    <div class="category-container flask-container">
+    <div class="category-container flask-container" id="flask">
       <div class="category-header">
         <div class="category-icon">
           <i class="fas fa-code"></i>
@@ -1291,97 +1362,8 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Configuração das partículas
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 60,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#00f0ff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          "value": 0.4,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 120,
-          "color": "#ff008a",
-          "opacity": 0.3,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1.5,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 120,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "push": {
-            "particles_nb": 3
-          }
-        }
-      },
-      "retina_detect": true
-    });
+    // Removemos a configuração de partículas, pois não será mais usada
 
     // Navbar scroll behavior
     let lastScrollTop = 0;
