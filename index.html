@@ -801,77 +801,98 @@
         padding: 14px 25px;
         font-size: 13px;
       }
-    }
 
-    @media (max-width: 768px) {
-      .hero h1.title {
-        font-size: 2.3rem;
+      /* Cards mais compactos */
+      .pricing-card {
+        padding: 20px 15px;
       }
-      
-      .hero .subtitle {
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .navbar a {
-        font-size: 11px;
-        margin: 0 10px;
-        padding: 5px 8px;
-      }
-      
-      .section-title {
-        font-size: 1.6rem;
-      }
-      
-      .category-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-      
-      .category-title {
-        font-size: 1.6rem;
-      }
-      
-      .service-type {
-        font-size: 1.3rem;
-      }
-      
-      .price-tag {
-        font-size: 1.4rem;
-      }
-      
-      .specs-list li {
-        font-size: 0.9rem;
-      }
-      
-      .cta h2 {
-        font-size: 1.8rem;
-      }
-      
-      .btn-primary, .btn-secondary {
-        padding: 14px 25px;
-        font-size: 13px;
-      }
-      
-      .contact-form {
-        padding: 30px;
-      }
-      
       .economy-container h3 {
         font-size: 1.5rem;
       }
+      
+      .economy-container p,
+      .economy-item p {
+        font-size: 1rem;
+      }
 
-      .quick-nav {
+      .economy-highlight {
+        font-size: 1.1rem;
+        padding: 12px;
+      }
+      
+    }
+
+    @media (max-width: 768px) {
+      /* Esconde detalhes em dispositivos móveis */
+      .pricing-card .specs-list,
+      .pricing-card .hosting-note {
+        display: none;
+      }
+
+      .pricing-card.expanded .specs-list,
+      .pricing-card.expanded .hosting-note {
+        display: block;
+      }
+
+      .pricing-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 15px;
+        margin-bottom: 10px;
+      }
+
+      .pricing-card::after {
+        content: "Clique para ver mais ↓";
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.7rem;
+        color: var(--accent);
+        animation: blink 2s infinite;
+      }
+
+      .pricing-card.expanded::after {
+        content: "Clique para recolher ↑";
+      }
+      
+      /* Ajuste de texto em cards expandidos */
+      .pricing-card.expanded .service-type {
+        font-size: 1.3rem;
+      }
+      
+      .pricing-card.expanded .price-tag {
+        font-size: 1.5rem;
+      }
+      
+      .pricing-card.expanded .specs-list li {
+        font-size: 0.8rem;
+        padding: 8px 0;
+      }
+      .economy-container h3 {
+        font-size: 1.3rem;
+      }
+      
+      .economy-container p,
+      .economy-item p {
+        font-size: 0.95rem;
+      }
+
+      .economy-highlight {
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      .economy-list {
         flex-direction: column;
         align-items: center;
       }
 
-      .quick-btn {
-        width: 80%;
-        margin-bottom: 10px;
+      .economy-item {
+        width: 100%;
+        max-width: 300px;
       }
     }
+    
 
     @media (max-width: 480px) {
       header {
@@ -969,6 +990,31 @@
         padding: 15px;
         font-size: 0.8rem;
       }
+      .economy-container {
+        padding: 20px;
+      }
+
+      .economy-container h3 {
+        font-size: 1.1rem;
+      }
+      
+      .economy-container p,
+      .economy-item p {
+        font-size: 0.9rem;
+      }
+
+      .economy-highlight {
+        font-size: 0.95rem;
+        padding: 8px;
+      }
+
+      .economy-item i {
+        font-size: 1.5rem;
+      }
+
+      .economy-item h4 {
+        font-size: 1rem;
+      }
       
       footer {
         padding: 20px 15px;
@@ -981,6 +1027,15 @@
       
       .economy-container {
         padding: 20px;
+      }
+      
+      /* Cards mais compactos */
+      .pricing-card {
+        padding: 15px 10px;
+      }
+      
+      .pricing-card.expanded {
+        padding-bottom: 25px;
       }
     }
 
@@ -1018,6 +1073,41 @@
         font-size: 10px;
         margin: 0 5px;
       }
+      
+      /* Ajustes finos para cards */
+      .pricing-card::after {
+        font-size: 0.65rem;
+      }
+      
+      .pricing-card.expanded .service-type {
+        font-size: 1.1rem;
+      }
+      
+      .pricing-card.expanded .price-tag {
+        font-size: 1.3rem;
+        padding: 8px;
+      }
+      .economy-container h3 {
+        font-size: 1rem;
+      }
+
+      .economy-container p,
+      .economy-item p {
+        font-size: 0.85rem;
+      }
+
+      .economy-highlight {
+        font-size: 0.9rem;
+        padding: 6px;
+      }
+    }
+
+    /* Novo: Estilo para cards expandidos em mobile */
+    .pricing-card.expanded {
+      box-shadow: 0 0 15px currentColor !important;
+      z-index: 10;
+      position: relative;
+      transform: scale(1.02);
     }
   </style>
 </head>
@@ -1354,8 +1444,7 @@
   <!-- FOOTER -->
   <footer>
     <p>🎮 PlayPage &copy; 2025 - Landing Pages, Sites e Aplicações Web</p>
-    <p>Feito por Franklin / <a href="https://github.com/KymDev" target="_blank">KymDev</a> • 
-       <a href="https://www.instagram.com/kymdev/" target="_blank">@kymdev</a></p>
+    <p>Feito por Franklin /  <a href="https://www.instagram.com/kymdev/" target="_blank">@KymDev</a></p>
   </footer>
 
   <a href="https://wa.me/5533991203571" class="whatsapp-float" target="_blank">
@@ -1363,8 +1452,6 @@
   </a>
 
   <script>
-    // Removemos a configuração de partículas, pois não será mais usada
-
     // Navbar scroll behavior
     let lastScrollTop = 0;
     const header = document.querySelector('header');
@@ -1381,6 +1468,26 @@
       lastScrollTop = st <= 0 ? 0 : st;
     });
     
+    // Recolher e expandir planos em dispositivos móveis
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 768) {
+        const cards = document.querySelectorAll('.pricing-card');
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            // Recolhe todos os outros cards
+            document.querySelectorAll('.pricing-card').forEach(otherCard => {
+              if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                otherCard.classList.remove('expanded');
+              }
+            });
+            
+            // Expande/recolhe o card clicado
+            card.classList.toggle('expanded');
+          });
+        });
+      }
+    });
+
     // Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {

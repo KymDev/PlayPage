@@ -87,7 +87,6 @@
       text-decoration: none;
       border: 3px solid #000;
       box-shadow: 0 0 15px #ffee00;
-      border-radius: 6px;
       transition: all 0.3s ease;
       cursor: pointer;
     }
@@ -295,7 +294,6 @@
     /* Container de imagem para manter altura consistente */
     .image-container {
       height: 300px; /* Altura fixa */
-      
       display: flex;
       align-items: center;
       justify-content: center;
@@ -329,6 +327,8 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       z-index: 2;
+      display: flex;
+      gap: 3px;
     }
     
     .type-page {
@@ -344,6 +344,14 @@
     .type-app {
       background: linear-gradient(90deg, #00f0ff, #00ff73);
       color: #000;
+    }
+
+    .full-text {
+      display: inline;
+    }
+    
+    .abbr-text {
+      display: none;
     }
 
     .card-content {
@@ -704,178 +712,185 @@
     }
 
     /* ===================================================================
-       RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS - MELHORIAS
+       RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS - MELHORIAS- TODOS OS TAMANHOS GRAÇAS A DEUS
        =================================================================== */
- /* === RESPONSIVO: até 992px (tablet) === */
-@media (max-width: 992px) {
-  .carousel-container {
-    height: 520px;
-    margin-bottom: 60px;
-  }
+    /* === RESPONSIVO: até 992px (tablet) === */
+    @media (max-width: 992px) {
+      .carousel-container {
+        height: 500px;
+        margin-bottom: 40px;
+      }
 
-  .carousel-item {
-    width: 300px;
-    height: 450px;
-    margin-left: -150px;
-    margin-top: -225px;
-  }
+      .carousel-item {
+        width: 280px;
+        height: 420px;
+        margin-left: -140px;
+        margin-top: -210px;
+      }
 
-  .image-container {
-    height: 230px;
-  }
+      .image-container {
+        height: 210px;
+      }
 
-  .carousel-item img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+      .card-title {
+        font-size: 15px;
+      }
 
-  .card-title {
-    font-size: 16px;
-  }
+      .card-description {
+        font-size: 11px;
+      }
 
-  .card-description {
-    font-size: 12px;
-  }
+      .btn-view {
+        font-size: 10px;
+        padding: 8px 0;
+      }
 
-  .btn-view {
-    font-size: 11px;
-    padding: 10px 0;
-  }
-}
+      .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+      }
+    }
 
-/* === RESPONSIVO: até 768px (celular médio) === */
-@media (max-width: 768px) {
-  .carousel-container {
-    height: 480px;
-    margin: 30px 0 50px;
-  }
+    /* === RESPONSIVO: até 768px (celular médio) === */
+    @media (max-width: 768px) {
+      .carousel-container {
+        height: 460px;
+        margin: 25px 0 40px;
+      }
 
-  .carousel-item {
-    width: 280px;
-    height: 420px;
-    margin-left: -140px;
-    margin-top: -210px;
-  }
+      .carousel-item {
+        width: 260px;
+        height: 400px;
+        margin-left: -130px;
+        margin-top: -200px;
+      }
 
-  .image-container {
-    height: 210px;
-  }
+      .image-container {
+        height: 190px;
+      }
 
-  .carousel-item img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+      .card-title {
+        font-size: 14px;
+      }
 
-  .card-title {
-    font-size: 14px;
-  }
+      .card-description {
+        font-size: 10.5px;
+      }
 
-  .card-description {
-    font-size: 11px;
-  }
+      .btn-view {
+        font-size: 10px;
+      }
 
-  .btn-view {
-    font-size: 10px;
-  }
+      .nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+    }
 
-  .nav-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
-  }
-}
+    /* === RESPONSIVO: até 480px (celular pequeno) === */
+    @media (max-width: 480px) {
+      .carousel-container {
+        height: 420px;
+        margin: 20px 0 35px;
+      }
 
-/* === RESPONSIVO: até 480px (celular pequeno) === */
-@media (max-width: 480px) {
-  .carousel-container {
-    height: 440px;
-    margin: 20px 0 40px;
-  }
+      .carousel-item {
+        width: 240px;
+        height: 370px;
+        margin-left: -120px;
+        margin-top: -185px;
+      }
 
-  .carousel-item {
-    width: 260px;
-    height: 390px;
-    margin-left: -130px;
-    margin-top: -195px;
-  }
+      .image-container {
+        height: 170px;
+      }
 
-  .image-container {
-    height: 190px;
-  }
+      .card-title {
+        font-size: 13px;
+      }
 
-  .carousel-item img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+      .card-description {
+        font-size: 9.5px;
+        margin-bottom: 10px;
+      }
 
-  .card-title {
-    font-size: 13px;
-  }
+      .btn-view {
+        font-size: 9.5px;
+        padding: 6px 0;
+      }
 
-  .card-description {
-    font-size: 10px;
-  }
+      .nav-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+      }
 
-  .btn-view {
-    font-size: 10px;
-  }
+      .carousel-controls {
+        gap: 25px;
+      }
+      
+      /* Esconder texto completo e mostrar abreviado */
+      .type-badge .full-text {
+        display: none;
+      }
+      .type-badge .abbr-text {
+        display: inline;
+      }
+    }
 
-  .nav-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
+    /* === RESPONSIVO: até 380px (celular muito pequeno) === */
+    @media (max-width: 380px) {
+      .carousel-container {
+        height: 390px;
+        margin: 15px 0 30px;
+      }
 
-  .carousel-controls {
-    gap: 25px;
-  }
-}
+      .carousel-item {
+        width: 220px;
+        height: 340px;
+        margin-left: -110px;
+        margin-top: -170px;
+      }
 
-/* === RESPONSIVO: até 380px (celular muito pequeno) === */
-@media (max-width: 380px) {
-  .carousel-container {
-    height: 400px;
-    margin: 20px 0 30px;
-  }
+      .image-container {
+        height: 160px;
+      }
 
-  .carousel-item {
-    width: 240px;
-    height: 360px;
-    margin-left: -120px;
-    margin-top: -180px;
-  }
+      .card-title {
+        font-size: 12px;
+      }
 
-  .image-container {
-    height: 170px;
-  }
+      .card-description {
+        font-size: 9px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
 
-  .carousel-item img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+      .btn-view {
+        font-size: 9px;
+        padding: 5px 0;
+      }
 
-  .card-title {
-    font-size: 12px;
-  }
+      .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
 
-  .card-description {
-    font-size: 9.5px;
-  }
-
-  .btn-view {
-    font-size: 9px;
-  }
-
-  .nav-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
-  }
-}
+    /* Mostrar texto completo em telas maiores */
+    @media (min-width: 481px) {
+      .type-badge .abbr-text {
+        display: none;
+      }
+      .type-badge .full-text {
+        display: inline;
+      }
+    }
 
   </style>
 </head>
@@ -911,7 +926,7 @@
     </div>
     
     <div class="carousel-container">
-      <h2 class="carousel-title">MODELOS DISPONÍVEIS</h2>
+      <h2 class="carousel-title">CONHEÇA NOSSOS MODELOS</h2> <!-- Título alterado -->
       <div class="carousel" id="carousel">
         <!-- Cards serão inseridos via JavaScript -->
       </div>
@@ -969,8 +984,7 @@
   <footer>
     <p>🎮 PlayPage &copy; 2025 - Todos os direitos reservados</p>
     <p>Feito por Franklin / 
-      <a href="https://github.com/KymDev" target="_blank" rel="noopener noreferrer">KymDev</a> • 
-      <a href="https://instagram.com/kymdev" target="_blank" rel="noopener noreferrer">@kymdev</a>
+      <a href="https://instagram.com/kymdev" target="_blank" rel="noopener noreferrer">@KymDev</a>
     </p>
     
     <div class="social-icons">
@@ -982,22 +996,41 @@
   </footer>
 
   <script>
+    // Mapeamento para nomes amigáveis
+    const categoryNames = {
+      landing: 'Landing Page',
+      sites: 'Site',
+      flask: 'Aplicação Web'
+    };
+
+    const subcategoryNames = {
+      simples: 'Simples',
+      personalizada: 'Personalizada',
+      conversao: 'Alta Conversão',
+      institucional: 'Institucional',
+      corporativo: 'Corporativo',
+      premium: 'Premium',
+      basico: 'Básico',
+      completo: 'Completo',
+      ecommerce: 'E-commerce'
+    };
+
     // Dados dos modelos com novas categorias e subcategorias
     const modelos = [
       // Landing Pages
       {
         id: 1,
-        title: "Landing Page Simples",
-        description: "Design responsivo básico com formulário de contato, ideal para negócios locais.",
-        image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMzIwIDE4MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMGYxZiIvPjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJQcmVzcyBTdGFydCAyUCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZWUwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U0lNUExFUyBQQUdFPC90ZXh0Pjwvc3ZnPg==",
-        link: "#",
+        title: "Currículo Digital",
+        description: "Design responsivo pessoal com foco em currículo e portfólio farmacêutico, ideal para apresentação profissional e contato direto.",
+        image: "assets/img/landing/simples/Franciele.png",
+        link: "https://kymdev.github.io/Franciele_Portifolio/",
         category: "landing",
         subcategory: "simples"
       },
       {
         id: 2,
         title: "TS Informática",
-        description: "Design exclusivo com SEO avançado e integração com WhatsApp e automação de e-mail, ideal para negócios digitais.",
+        description: "Design moderno e responsivo com cards de serviço, formulário de contato, depoimentos e integração com WhatsApp e automação de E-Mail — ideal para negócios locais de tecnologia.",
         image: "assets/img/landing/personalizada/teste.png",
         link: "https://tassioliborio25.github.io/TS_Informatica/",
         category: "landing",
@@ -1102,13 +1135,18 @@
       flask: ['basico', 'completo', 'ecommerce']
     };
     
-    // Preencher o dropdown de modelos
+    // Preencher o dropdown de modelos com categoria/subcategoria
     function populateModelSelect() {
       modelSelect.innerHTML = '<option value="">Selecione um modelo</option>';
       modelos.forEach(model => {
         const option = document.createElement('option');
         option.value = model.title;
-        option.textContent = model.title;
+        
+        // Obter nomes amigáveis
+        const categoryName = categoryNames[model.category] || model.category;
+        const subcategoryName = subcategoryNames[model.subcategory] || model.subcategory;
+        
+        option.textContent = `${categoryName} - ${subcategoryName}`;
         modelSelect.appendChild(option);
       });
     }
@@ -1139,18 +1177,22 @@
         // Determinar classe de tipo para o badge
         let typeClass = '';
         let typeText = '';
+        let typeAbbr = '';
         switch(modelo.category) {
           case 'landing': 
             typeClass = 'type-page';
             typeText = 'LANDING PAGE';
+            typeAbbr = 'LAND';
             break;
           case 'sites': 
             typeClass = 'type-site';
             typeText = 'SITE';
+            typeAbbr = 'ST';
             break;
           case 'flask': 
             typeClass = 'type-app';
             typeText = 'APP WEB';
+            typeAbbr = 'PW';
             break;
         }
         
@@ -1160,7 +1202,10 @@
           <div class="image-container">
             <img src="${modelo.image}" alt="${modelo.title}">
           </div>
-          <div class="type-badge ${typeClass}">${typeText}</div>
+          <div class="type-badge ${typeClass}">
+            <span class="full-text">${typeText}</span>
+            <span class="abbr-text">${typeAbbr}</span>
+          </div>
           <div class="card-content">
             <h3 class="card-title">${modelo.title}</h3>
             <p class="card-description">${modelo.description}</p>
@@ -1184,8 +1229,13 @@
     // Selecionar modelo
     function selectModel(model) {
       selectedModel = model;
+      
+      // Definir o valor do select com categoria/subcategoria
+      const categoryName = categoryNames[model.category] || model.category;
+      const subcategoryName = subcategoryNames[model.subcategory] || model.subcategory;
       modelSelect.value = model.title;
-      messageInput.value = `Olá! Gostaria de solicitar um orçamento para o modelo: ${model.title}.\n\nDetalhes do meu projeto: `;
+      
+      messageInput.value = `Olá! Gostaria de solicitar um orçamento para o modelo: ${categoryName} - ${subcategoryName}.\n\nDetalhes do meu projeto: `;
       
       // Destacar o card selecionado
       document.querySelectorAll('.carousel-item').forEach(item => {
